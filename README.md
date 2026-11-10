@@ -41,5 +41,40 @@ python -m venv venv
 .\venv\Scripts\activate
 # On Linux/macOS:
 source venv/bin/activate
-
 pip install -r requirements.txt
+
+
+## ⚡ Quick Start Guide (Run Project Locally)
+
+Ensure you have **Python (3.10+)** and **Node.js (18+)** installed.
+
+### Step 1: Start Backend Server
+Open a terminal in the project root directory and run:
+
+```bash
+cd backend
+python -m venv venv
+
+# Windows:
+.\venv\Scripts\activate
+# macOS/Linux:
+# source venv/bin/activate
+
+# Install all backend dependencies in one go
+pip install fastapi uvicorn sqlalchemy pydantic passlib bcrypt python-jose google-genai pytest httpx
+
+# (Optional) Add your Gemini API key if testing routine AI guidance:
+# Create a .env file inside the 'backend' folder and add:
+# GEMINI_API_KEY=your_gemini_api_key_here
+
+# Start the API server
+uvicorn app.main:app --reload
+
+#For Frontened
+cd frontend
+npm install
+npm run dev
+
+#For Automated Test Suite
+cd backend
+pytest -v test_triage.py
